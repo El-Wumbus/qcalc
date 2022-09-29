@@ -5,16 +5,15 @@
 int main()
 {
 
-  Token* tokens = get_tokens("3 + 2 + 4.2 * 221 / 2 21.24 0.22");
+  Token* tokens = get_tokens("3 + 2 + 4.2 * 221 / 2 21.24 0.22 \\");
   for(register short i =0; i < token_len(); i++)
   {
     if (tokens[i].Type == ILLIGALCHAR)
     {
-        printf("Error: Illigal Char\n");
-        exit(1);
+        fprintf(stderr,"Error: Illigal Char\n");
     }
 
-    printf("Token number: %d\nToken type: %d\nToken value: %Lf\n\n", i, tokens[i].Type, tokens[i].Value);
+    printf("Token number: %d\nToken type: %d\nToken value: %Lg\n\n", i, tokens[i].Type, tokens[i].Value);
   }
   free(tokens);
   return 0;
