@@ -74,17 +74,7 @@ static void append_char(char** dest, char source)
     free(*dest);
     *dest = buffer;
     return;
-    /* size_t len = strlen(sdest);
-    sdest = realloc(sdest, (len +1)* sizeof(char));
-    if (sdest == NULL)
-    {
-        perror("realloc");
-        exit(EXIT_FAILURE);
-    }
-    printf("%c %c\t",*dest[len], source);
-    *dest[len] = source;
-    printf("%s\n",*dest);
-    strcpy(dest, sdest) */
+    
 }  
 
 static Token get_num()
@@ -117,11 +107,6 @@ static Token get_num()
         next_char();
         iterations+=1;
     }
-    
-    /* if (number_string[0] == '.')
-    {
-        append_char(&number_string,'0');
-    } */
 
     buffer = (Token) {
         .Type = NUM,
@@ -136,12 +121,12 @@ Token * get_tokens(char* input)
 {
 
     init_lexer(input);
-    // TODO: Loop while current_char isn't '\0'
-    //      Within this loop:
-    //          check for whitespace, if found move to next char.
-    //          check for digits, if found run get_num function, append the result to the tokens array, move to next char.
-    //          check for for the operators (+ - * /) and append a token to the tokens array, move to next char.
-    //          check for parenthesis and append tokens to token array, move to next char.
+    //Loop while current_char isn't '\0'
+    //Within this loop:
+    //  check for whitespace, if found move to next char.
+    //  check for digits, if found run get_num function, append the result to the tokens array, move to next char.
+    //  check for for the operators (+ - * /) and append a token to the tokens array, move to next char.
+    //  check for parenthesis and append tokens to token array, move to next char.
 
     while(current_char != '\0')
     {
